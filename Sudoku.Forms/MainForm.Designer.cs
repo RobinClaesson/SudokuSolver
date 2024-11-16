@@ -69,7 +69,7 @@
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(93, 22);
             exitToolStripMenuItem.Text = "&Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -83,21 +83,21 @@
             // fetchNewToolStripMenuItem
             // 
             fetchNewToolStripMenuItem.Name = "fetchNewToolStripMenuItem";
-            fetchNewToolStripMenuItem.Size = new Size(180, 22);
+            fetchNewToolStripMenuItem.Size = new Size(128, 22);
             fetchNewToolStripMenuItem.Text = "&Fetch new";
             fetchNewToolStripMenuItem.Click += fetchButton_Click;
             // 
             // resetToolStripMenuItem
             // 
             resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            resetToolStripMenuItem.Size = new Size(180, 22);
+            resetToolStripMenuItem.Size = new Size(128, 22);
             resetToolStripMenuItem.Text = "&Reset";
             resetToolStripMenuItem.Click += resetButton_Click;
             // 
             // validateToolStripMenuItem
             // 
             validateToolStripMenuItem.Name = "validateToolStripMenuItem";
-            validateToolStripMenuItem.Size = new Size(180, 22);
+            validateToolStripMenuItem.Size = new Size(128, 22);
             validateToolStripMenuItem.Text = "&Validate";
             validateToolStripMenuItem.Click += validateButton_Click;
             // 
@@ -113,6 +113,7 @@
             creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
             creditsToolStripMenuItem.Size = new Size(56, 20);
             creditsToolStripMenuItem.Text = "&Credits";
+            creditsToolStripMenuItem.Click += creditsToolStripMenuItem_Click;
             // 
             // MainForm
             // 

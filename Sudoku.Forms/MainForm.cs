@@ -1,6 +1,7 @@
 using Sudoku.Core;
 using Sudoku.Core.Dosuku;
 using Sudoku.Core.Dosuku.Models;
+using Sudoku.Forms;
 using System.Net.Http.Json;
 
 namespace Sudoku.Kudos;
@@ -156,5 +157,11 @@ public partial class MainForm : Form
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
         this.Close();
+    }
+
+    private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        var credits = new CreditsForm();
+        credits.ShowDialog();
     }
 }

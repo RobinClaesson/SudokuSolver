@@ -108,9 +108,13 @@ public partial class MainForm : Form
         _apiGrid = await DosukuHandler.FetchNewBoardAsync();
 
         if (_apiGrid is not null)
+        {
             Text = "Sudoku - Difficulty: " + _apiGrid.NewBoard.Grids[0].Difficulty;
-
-        ResetGrid();
+            _grid = new SolvingSudokuGrid(_apiGrid.NewBoard.Grids[0].Value);
+            _grid.GridUpdated += OnGridUpdated;
+            sudokuPanel.BackColor = Color.White;
+            sudokuPanel.Refresh();
+        }
 
         resetToolStripMenuItem.Enabled = true;
         solveToolStripMenuItem.Enabled = true;
@@ -130,18 +134,9 @@ public partial class MainForm : Form
 
     private void resetButton_Click(object sender, EventArgs e)
     {
-        ResetGrid();
-    }
-
-    private void ResetGrid()
-    {
-        if (_apiGrid is not null)
-        {
-            _grid = new SolvingSudokuGrid(_apiGrid.NewBoard.Grids[0].Value);
-            _grid.GridUpdated += OnGridUpdated;
-            sudokuPanel.BackColor = Color.White;
-            sudokuPanel.Refresh();
-        }
+        _grid.Reset();
+        sudokuPanel.BackColor = Color.White;
+        sudokuPanel.Refresh();
     }
 
     private void button1_Click(object sender, EventArgs e)

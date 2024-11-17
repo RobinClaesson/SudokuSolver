@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider IsDarkMode=@ViewSettings.DarkMode />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar>
+        <h1>Sudoku Solver</h1>
+        <MudSpacer />
+
+        <MudButtonGroup Color="Color.Inherit" Size="Size.Large">
+            <MudButton OnClick="FetchGrid">
+                @if (GridData.IsFetching)
+                {
+                    <MudProgressCircular Color="Color.Inherit" Indeterminate="true" Size="Size.Small"/>
+                }
+                New Puzzle
+            </MudButton>
+            <MudButton OnClick="SolveGrid">Solve!</MudButton>
+            <MudButton OnClick="ResetGrid">Reset</MudButton>
+
+        </MudButtonGroup>
+        <MudSpacer />
+
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Size="Size.Large"
+                       Href="https://github.com/RobinClaesson/SudokuSolver" Target="blank" />
+        <MudIconButton Icon="@DarkModeIcon" Color="Color.Inherit" Size="Size.Large"
+                       OnClick="ViewSettings.ToggleDarkMode" />
+    </MudAppBar>
+
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.ExtraLarge">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>

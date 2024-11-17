@@ -1,0 +1,22 @@
+﻿<MudContainer MaxWidth="MaxWidth.Small">
+    <div class="sudoku-grid">
+        @for (int row = 0; row < 9; row++)
+        {
+            @for (int col = 0; col < 9; col++)
+            {
+                <div class="@CellClass(row, col)">
+                    @if (GridData.SolvingSudokuGrid[row, col].Value != 0)
+                    {
+                        <span class="@TextClass(GridData.SolvingSudokuGrid[row, col])">
+                            @GridData.SolvingSudokuGrid[row, col].Value
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="sudoku-text-set">&nbsp;</span>
+                    }
+                </div>
+            }
+        }
+    </div>
+</MudContainer>

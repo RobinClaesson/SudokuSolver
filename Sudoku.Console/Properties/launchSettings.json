@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Console Input": {
+      "commandName": "Project"
+    },
+    "Test File": {
+      "commandName": "Project",
+      "commandLineArgs": "test.txt"
+    }
+  }
+}

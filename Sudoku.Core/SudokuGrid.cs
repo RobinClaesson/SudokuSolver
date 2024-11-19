@@ -1,5 +1,6 @@
 ﻿using Sudoku.Core.Util;
 using System.Collections.Immutable;
+using System.Runtime.CompilerServices;
 
 namespace Sudoku.Core;
 
@@ -45,6 +46,40 @@ public class SudokuGrid
     public SudokuGrid(int[][] grid)
     {
         InitCells(ArrayUtil.To2D(grid));
+    }
+
+    /// <summary>
+    /// Parses a string into a SudokuGrid object.
+    /// </summary>
+    /// <param name="input">9 lines of 9 numbers 0-9, 0 indicates empy cell</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    public static SudokuGrid FromString(string input)
+    {
+        var rows = input.Trim().Replace("\r", "").Split("\n");
+
+        if (rows.Length != 9)
+            throw new ArgumentException($"Invalid input! Expected 9 rows got {rows.Length} rows!");
+
+        if (rows.Any(rows => rows.Length != 9))
+        {
+            var missing = rows.First(rows => rows.Length != 9);
+            var index = Array.IndexOf(rows, missing);
+            throw new ArgumentException($"Invalid input! Expected all rows to have 9 characters. Row {index + 1} has {missing.Length} characters!");
+        }
+
+        var chars = rows.Select(row => row.ToCharArray()).ToArray();
+        if (chars.Any(row => row.Any(c => c < '0' || c > '9')))
+        {
+            var invalid = chars.First(row => row.Any(c => c < '0' || c > '9'));
+            var rowIndex = Array.IndexOf(chars, invalid);
+            var colIndex = Array.IndexOf(invalid, invalid.First(c => c < '0' || c > '9'));
+            throw new ArgumentException($"Invalid input! Expected all characters to be between 0 and 9. Found {invalid[colIndex]} at row {rowIndex + 1} column {colIndex + 1}");
+        }
+
+        var grid = chars.Select(row => row.Select(c => c - '0').ToArray()).ToArray();
+
+        return new SolvingSudokuGrid(grid);
     }
 
     /// <summary>
@@ -190,4 +225,5 @@ public class SudokuGrid
                 if (_grid[row, column].CellType != CellType.Set)
                     _grid[row, column].Value = 0;
     }
+
 }

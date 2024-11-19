@@ -52,6 +52,17 @@ public class SolvingSudokuGrid : SudokuGrid
     }
 
     /// <summary>
+    /// Parses a string into a SolvingSudokuGrid object.
+    /// </summary>
+    /// <param name="input">9 lines of 9 numbers 0-9, 0 indicates empy cell</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentException"></exception>
+    public static SolvingSudokuGrid FromString(string input)
+    {
+        return (SolvingSudokuGrid)SudokuGrid.FromString(input);
+    }
+
+    /// <summary>
     /// Collects all rows, columns and blocks in the grid and fills the private variables.
     /// </summary>
     private void SetRowsColumnsAndBlocks()

@@ -28,10 +28,14 @@ There is also a desktop forms app. It does however for now still require interne
 ### Core
 .NET 8 class library for the solver and the supporting classes.
 
-## Potential future goals
+## Roadmap (Unordered and SoonTm)
+* Manual entering of puzzles for Web and Forms
+* Settings for not rendering every step in solving (Improves performance)
 * Add more logical rules
 * Add image recognition to import grid from picture
 * Generate own puzzles
+* Create SolveAsync() for solving asynchronously 
+* Save every solved step for replay (With depth-first tree?)
 
 ## Credits - Puzzle generator API
 The Sudoku puzzles solved by this program is being fetched from https://sudoku-api.vercel.app/ by [Marcus0086](https://github.com/Marcus0086).

@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Sudoku.Core\Sudoku.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ConsoleLineMenu.11.12.24.001" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
